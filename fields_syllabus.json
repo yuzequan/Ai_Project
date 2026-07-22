@@ -1,0 +1,1 @@
+[{"name":"course_id","type":"number","style":{"type":"plain","precision":0}},{"name":"section","type":"text"},{"name":"key_points","type":"text"},{"name":"required_duration","type":"number","style":{"type":"plain","precision":0}},{"name":"order","type":"number","style":{"type":"plain","precision":0}},{"name":"创建时间","type":"created_at","style":{"format":"yyyy-MM-dd HH:mm"}}]

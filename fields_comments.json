@@ -1,0 +1,1 @@
+[{"name":"user_id","type":"text"},{"name":"user_role","type":"select","options":[{"name":"teacher","hue":"Blue"},{"name":"student","hue":"Green"}]},{"name":"content","type":"text"},{"name":"timestamp","type":"datetime","style":{"format":"yyyy-MM-dd HH:mm"}},{"name":"创建时间","type":"created_at","style":{"format":"yyyy-MM-dd HH:mm"}}]

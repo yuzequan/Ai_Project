@@ -1,0 +1,1 @@
+[{"name":"姓名","type":"text"},{"name":"飞书用户ID","type":"text"},{"name":"部门","type":"text"},{"name":"负责科目","type":"text"},{"name":"飞书Webhook","type":"text","style":{"type":"url"}},{"name":"是否在职","type":"checkbox"},{"name":"创建时间","type":"created_at","style":{"format":"yyyy-MM-dd HH:mm"}}]

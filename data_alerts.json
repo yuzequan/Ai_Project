@@ -1,0 +1,1 @@
+{"fields":["关联场次","alert_type","threshold","actual_score","notified_group","notified_at","status"],"rows":[[[{"id":"recvq5KPorfwdW"}],"low_score",60.0,55.5,"CBT运营群","2026-07-16 10:35:00","sent"],[[{"id":"recvq5KPormAjI"}],"low_score",60.0,72.0,"CBT运营群","2026-07-17 15:45:00","sent"],[[{"id":"recvq5KPorRKDS"}],"low_score",60.0,68.0,"CBT运营群","2026-07-18 15:40:00","sent"]]}
