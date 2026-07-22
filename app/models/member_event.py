@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from datetime import datetime, timezone
 
 from sqlalchemy import DateTime, Enum, ForeignKey, Index, Integer, String, func
