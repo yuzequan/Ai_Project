@@ -125,6 +125,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .tab:hover{color:var(--text-secondary);background:var(--accent-subtle)}
 .tab.active{color:var(--accent);background:var(--accent-glow);box-shadow:0 0 15px var(--accent-glow)}
 .tab .tab-icon{display:block;font-size:18px;margin-bottom:4px}
+.tab-score{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;font-family:var(--font-mono);vertical-align:middle}
+.tab-score.high{background:var(--green-subtle);color:var(--green)}
+.tab-score.medium{background:var(--amber-subtle);color:var(--amber)}
+.tab-score.low{background:var(--red-subtle);color:var(--red)}
 
 /* Tab Content */
 .tab-content{display:none;animation:fadeIn .35s ease}
@@ -163,6 +167,42 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .score-ring-legend-item .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .score-ring-legend-item .lbl{color:var(--text-secondary);min-width:70px}
 .score-ring-legend-item .val{font-family:var(--font-mono);font-weight:600;font-size:14px}
+
+/* Syllabus Button */
+.btn-syllabus{display:inline-flex;align-items:center;gap:6px;background:var(--blue-subtle);border:1px solid rgba(74,125,255,0.3);color:var(--blue);padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:var(--transition);font-family:var(--font)}
+.btn-syllabus:hover{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 0 16px rgba(74,125,255,0.3)}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(7,11,20,0.75);backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.modal-overlay.show{opacity:1;pointer-events:auto}
+.modal{background:var(--bg-card);border:1px solid var(--border-light);border-radius:16px;width:90%;max-width:680px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.6);transform:scale(0.92) translateY(20px);transition:transform .35s cubic-bezier(0.4,0,0.2,1)}
+.modal-overlay.show .modal{transform:scale(1) translateY(0)}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid var(--border);flex-shrink:0}
+.modal-header-left{display:flex;align-items:center;gap:12px}
+.modal-icon{width:36px;height:36px;border-radius:8px;background:var(--blue-subtle);display:flex;align-items:center;justify-content:center;font-size:18px}
+.modal-title{font-size:16px;font-weight:700;color:var(--text-primary)}
+.modal-subtitle{font-size:12px;color:var(--text-muted);margin-top:2px}
+.modal-close{width:32px;height:32px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);color:var(--text-secondary);font-size:16px;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--red-subtle);color:var(--red);border-color:var(--red)}
+.modal-body{padding:24px 28px;overflow-y:auto;flex:1}
+.modal-body::-webkit-scrollbar{width:6px}
+.modal-body::-webkit-scrollbar-track{background:var(--bg-surface);border-radius:3px}
+.modal-body::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+.syllabus-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.syllabus-meta-item{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px}
+.syllabus-meta-item .label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.syllabus-meta-item .value{font-size:14px;font-weight:600;color:var(--text-primary)}
+.syllabus-section{margin-bottom:20px}
+.syllabus-section-title{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.syllabus-section-title::before{content:'';width:3px;height:14px;background:var(--accent);border-radius:2px}
+.syllabus-points{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.syllabus-points li{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--text-secondary);line-height:1.6;transition:var(--transition)}
+.syllabus-points li:hover{border-color:var(--border-light);background:var(--bg-elevated)}
+.syllabus-points li .point-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--accent-subtle);color:var(--accent);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono)}
+.syllabus-objectives{display:flex;flex-wrap:wrap;gap:8px}
+.syllabus-tag{background:var(--bg-surface);border:1px solid var(--border);color:var(--text-secondary);padding:5px 12px;border-radius:16px;font-size:12px;font-weight:500}
+.syllabus-source{margin-top:16px;padding:12px 16px;background:var(--blue-subtle);border:1px solid rgba(74,125,255,0.2);border-radius:var(--radius-sm);font-size:12px;color:var(--text-secondary);display:flex;align-items:center;gap:8px}
+.syllabus-source .src-icon{font-size:14px}
 
 /* Responsive */
 @media(max-width:900px){.app{padding:20px}.stats{grid-template-columns:1fr}.detail-top{flex-direction:column}.tabs{flex-wrap:wrap}.tab{flex:1 0 45%}.score-ring-wrap{flex-direction:column}.detail-session-info{grid-template-columns:1fr 1fr}}
@@ -245,14 +285,11 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
   <!-- Tabs -->
   <div class="tabs" id="tabs">
-    <button class="tab active" data-tab="attendance"><span class="tab-icon">⏰</span>出勤情况</button>
-    <button class="tab" data-tab="professionalism"><span class="tab-icon">📚</span>授课专业度</button>
-    <button class="tab" data-tab="engagement"><span class="tab-icon">💬</span>课堂活跃度</button>
-    <button class="tab" data-tab="software"><span class="tab-icon">🖥️</span>软件熟练度</button>
+    <button class="tab active" data-tab="attendance" id="tab-attendance"><span class="tab-icon">⏰</span>出勤情况</button>
+    <button class="tab" data-tab="professionalism" id="tab-professionalism"><span class="tab-icon">📚</span>授课专业度</button>
+    <button class="tab" data-tab="engagement" id="tab-engagement"><span class="tab-icon">💬</span>课堂活跃度</button>
+    <button class="tab" data-tab="software" id="tab-software"><span class="tab-icon">🖥️</span>软件熟练度</button>
   </div>
-
-  <!-- Score Ring Overview -->
-  <div class="score-ring-wrap" id="score-ring-wrap"></div>
 
   <!-- Tab Contents -->
   <div id="tab-contents">
@@ -260,6 +297,23 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
     <div class="tab-content" data-tab="professionalism" id="content-professionalism"></div>
     <div class="tab-content" data-tab="engagement" id="content-engagement"></div>
     <div class="tab-content" data-tab="software" id="content-software"></div>
+  </div>
+</div>
+
+<!-- ========== SYLLABUS MODAL ========== -->
+<div class="modal-overlay" id="syllabus-modal" onclick="if(event.target===this)closeSyllabusModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">📖</div>
+        <div>
+          <div class="modal-title" id="syllabus-modal-title">教纲详情</div>
+          <div class="modal-subtitle" id="syllabus-modal-subtitle">本场直播对应教学大纲</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeSyllabusModal()">✕</button>
+    </div>
+    <div class="modal-body" id="syllabus-modal-body"></div>
   </div>
 </div>
 
@@ -319,6 +373,170 @@ const SESSIONS = [
    engagement:{score:85, comments:3, speaks:1, questions:3, interactions:3, detail:"互动良好"},
    software:{score:85, shareDuration:88, studentJoins:3, abnormal:0, note:"操作正常"}}
 ];
+
+// ========== SYLLABUS DATA ==========
+const SYLLABUS_DATA = {
+  1: {
+    section: "CBT基础概论——认知行为疗法的核心原理",
+    order: 1,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 案例视频",
+    keyPoints: [
+      "CBT定义与核心理念：认知决定情绪和行为，改变思维模式即可改善情绪状态",
+      "CBT发展历史：从贝克认知疗法到埃利斯理性情绪行为疗法(REBT)的演进脉络",
+      "CBT六大基本特征：目标导向、结构化、短期干预、合作性、问题导向、聚焦当下",
+      "认知模型三要素：情境→自动思维→情绪/行为反应的因果链条解析",
+      "CBT适应症范围：抑郁、焦虑、PTSD、强迫症、进食障碍等循证医学证据",
+      "治疗联盟建立：咨询师与来访者的合作经验主义关系构建方法"
+    ],
+    objectives: ["理解CBT核心理念", "掌握认知模型", "了解循证证据"],
+    methods: ["讲授法", "案例分析", "视频演示"]
+  },
+  2: {
+    section: "认知三角模型——思维、情绪与行为的互动循环",
+    order: 2,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 互动练习",
+    keyPoints: [
+      "认知三角模型定义：思维、情绪、行为三者之间的双向互动关系",
+      "思维→情绪路径：负面自动思维如何引发焦虑、抑郁等负面情绪",
+      "情绪→行为路径：情绪状态对行为决策的驱动作用与机制",
+      "行为→思维路径：行为实验如何反向验证和修正认知偏差",
+      "三角循环的恶性与良性循环：从自我强化到自我打破的转变策略",
+      "实操练习：用个人案例绘制认知三角图，识别三者互动模式"
+    ],
+    objectives: ["掌握三角模型", "能绘制认知三角图", "识别循环模式"],
+    methods: ["讲授法", "小组练习", "角色扮演"]
+  },
+  3: {
+    section: "自动思维——识别大脑的快捷方式",
+    order: 3,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 思维记录表",
+    keyPoints: [
+      "自动思维的定义与特征：自发涌现、瞬间闪过、常无意识的思维片段",
+      "自动思维与核心信念的区别：表层思维vs深层图式的层级关系",
+      "自动思维的三种类型：正性、中性、负性思维及其对情绪的不同影响",
+      "识别自动思维的ABC模型：A(事件)-B(信念/思维)-C(情绪与行为后果)",
+      "自动思维记录表的使用方法：情境、情绪、自动思维、替代思维四栏法",
+      "常见自动思维触发场景：社交、工作、健康、人际关系中的典型表现"
+    ],
+    objectives: ["理解自动思维概念", "掌握ABC模型", "能使用思维记录表"],
+    methods: ["讲授法", "实操练习", "案例研讨"]
+  },
+  4: {
+    section: "认知扭曲（上）——常见的思维陷阱",
+    order: 4,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 辨识练习",
+    keyPoints: [
+      "认知扭曲的定义：系统性的认知偏差，是自动思维的底层逻辑错误",
+      "非黑即白思维：全或无的极端化思考方式及其现实表现",
+      "过度概括：从单一负面事件推导出普遍性负面结论的逻辑谬误",
+      "心理过滤：只关注负面信息而忽视正面信息的认知偏误",
+      "贬低积极因素：将正面经验归因于偶然或否认其价值",
+      "跳跃式结论：读心术和算命式预测两种常见形式"
+    ],
+    objectives: ["识别6种认知扭曲", "理解偏差机制", "能标注扭曲类型"],
+    methods: ["讲授法", "辨识练习", "小组讨论"]
+  },
+  5: {
+    section: "认知扭曲（下）——核心信念与中间信念",
+    order: 5,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 信念分析",
+    keyPoints: [
+      "放大与缩小：对事件重要性的不成比例评估",
+      "情绪推理：以感受作为事实证据的认知错误",
+      "应该陈述：用僵化的规则要求自己和他人的思维模式",
+      "贴标签：对人而非对行为的全局性负面评价",
+      "个人化与责备：不当归因的两种极端形式",
+      "核心信念与中间信念：从表层自动思维到深层图式的垂直分析模型"
+    ],
+    objectives: ["掌握剩余认知扭曲", "理解信念层级", "能进行信念分析"],
+    methods: ["讲授法", "案例分析", "信念分析练习"]
+  },
+  6: {
+    section: "认知重构技术——从识别到改变负面思维",
+    order: 6,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 重构练习",
+    keyPoints: [
+      "认知重构五步法：识别→评估→挑战→替代→巩固的完整流程",
+      "苏格拉底式提问技术：通过引导式提问帮助来访者自行发现认知偏差",
+      "证据检验法：支持和反对自动思维的正反两方面证据收集与分析",
+      "去灾难化技术：评估最坏情况发生的概率及应对策略",
+      "替代思维生成：构建平衡、理性、弹性思维的具体方法与模板",
+      "认知重构实操演练：完整案例从识别到重构的全流程模拟"
+    ],
+    objectives: ["掌握重构五步法", "熟练苏格拉底提问", "能完成重构演练"],
+    methods: ["讲授法", "实操演练", "督导反馈"]
+  },
+  7: {
+    section: "行为干预技术——行为激活与暴露疗法",
+    order: 7,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 行为计划表",
+    keyPoints: [
+      "行为激活理论：通过增加愉悦感和成就感活动打破抑郁循环",
+      "活动监测与计划表：记录日常活动并评估情绪影响的工具使用",
+      "活动分级：从低难度到高难度的渐进式行为目标设定策略",
+      "暴露疗法原理：通过系统脱敏减少焦虑反应的核心机制",
+      "想象暴露vs现场暴露：不同暴露方式的适用场景与操作要点",
+      "反应预防技术：抑制强迫性行为反应的实操方法与注意事项"
+    ],
+    objectives: ["掌握行为激活", "理解暴露疗法", "能制定行为计划"],
+    methods: ["讲授法", "实操练习", "视频观摩"]
+  },
+  8: {
+    section: "苏格拉底式提问与思维记录表",
+    order: 8,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 提问练习",
+    keyPoints: [
+      "苏格拉底式提问的哲学基础：产婆术与引导式发现的核心理念",
+      "六类经典提问框架：澄清、假设、证据、视角、含义、后果",
+      "提问节奏与语气控制：开放式vs封闭式提问的灵活切换技巧",
+      "思维记录表七栏法：情境→情绪→自动思维→证据→反证→替代思维→结果",
+      "思维记录表的常见使用误区：避免说教和过度理性化",
+      "综合实操：苏格拉底提问与思维记录表的联合应用案例演练"
+    ],
+    objectives: ["掌握六类提问", "熟练七栏法", "能联合应用"],
+    methods: ["讲授法", "角色扮演", "同伴练习"]
+  },
+  9: {
+    section: "CBT自助技术整合——应对卡片与行为实验",
+    order: 9,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 应对卡片模板",
+    keyPoints: [
+      "应对卡片制作：将核心认知重构成果浓缩为便携式自助工具",
+      "应对卡片内容结构：触发情境→自动思维→替代思维→应对行动",
+      "行为实验设计：从假设到验证的认知检验科学方法",
+      "行为实验类型：观察性实验vs试验性实验的设计与实施差异",
+      "实验结果分析与认知更新：如何从实验反馈中修正核心信念",
+      "CBT自助技术工具箱整合：思维记录、应对卡片、行为实验的协同应用"
+    ],
+    objectives: ["能制作应对卡片", "设计行为实验", "整合自助工具"],
+    methods: ["讲授法", "动手制作", "实验设计"]
+  },
+  10: {
+    section: "CBT综合实践——从理论到生活的完整路径",
+    order: 10,
+    requiredDuration: "90分钟",
+    courseware: "PPT + 综合案例",
+    keyPoints: [
+      "CBT完整治疗流程回顾：评估→概念化→干预→巩固→结案的五个阶段",
+      "个案概念化实操：从初始评估到认知行为分析报告的撰写方法",
+      "复发预防策略：识别预警信号、制定应对计划、建立维持机制",
+      "来访者自助能力培养：从治疗师引导到自主应用的能力转移路径",
+      "CBT与其他疗法的整合：与正念、ACT、DBT等第三浪潮疗法的互补应用",
+      "课程总结与考核要求：理论考核标准、实操评分细则、结业要求说明"
+    ],
+    objectives: ["掌握完整流程", "能撰写概念化", "制定复发预防计划"],
+    methods: ["讲授法", "综合案例", "课程总结"]
+  }
+};
 
 // ========== STATE ==========
 let currentFilter = 'all';
@@ -393,36 +611,25 @@ function openDetail(id) {
     <div class="detail-info-item"><span class="label">综合评分</span><span class="detail-score-large" style="color:${s.score>=80?'var(--green)':s.score>=60?'var(--amber)':'var(--red)'}">${s.score}<span class="score-unit">/100</span></span></div>
   `;
 
-  // Score ring + 4 dimensions
-  renderScoreRing(s);
+  // Update tab labels with dimension scores
+  updateTabScores(s);
   renderAllTabContents(s);
   activateTab('attendance');
 
   showPage('detail');
 }
 
-function renderScoreRing(s) {
-  const r = 48, circ = 2 * Math.PI * r;
-  const pct = s.score / 100;
-  const color = s.score >= 80 ? '#00d48a' : s.score >= 60 ? '#f0b400' : '#ff4757';
-  document.getElementById('score-ring-wrap').innerHTML = `
-    <div class="score-ring">
-      <svg viewBox="0 0 120 120" width="120" height="120">
-        <circle class="score-ring-bg" cx="60" cy="60" r="${r}"/>
-        <circle class="score-ring-fill" cx="60" cy="60" r="${r}" stroke="${color}" stroke-dasharray="${circ}" stroke-dashoffset="${circ * (1 - pct)}"/>
-      </svg>
-      <div class="score-ring-text">
-        <span class="num" style="color:${color}">${s.score}</span>
-        <span class="lbl">综合评分</span>
-      </div>
-    </div>
-    <div class="score-ring-legend">
-      <div class="score-ring-legend-item"><span class="dot" style="background:var(--accent)"></span><span class="lbl">出勤</span><span class="val">${s.attendance.score}</span></div>
-      <div class="score-ring-legend-item"><span class="dot" style="background:var(--blue)"></span><span class="lbl">专业度</span><span class="val">${s.professionalism.score}</span></div>
-      <div class="score-ring-legend-item"><span class="dot" style="background:var(--purple)"></span><span class="lbl">活跃度</span><span class="val">${s.engagement.score}</span></div>
-      <div class="score-ring-legend-item"><span class="dot" style="background:var(--amber)"></span><span class="lbl">熟练度</span><span class="val">${s.software.score}</span></div>
-    </div>
-  `;
+function updateTabScores(s) {
+  const dims = [
+    {id:'tab-attendance', icon:'⏰', label:'出勤情况', score:s.attendance.score},
+    {id:'tab-professionalism', icon:'📚', label:'授课专业度', score:s.professionalism.score},
+    {id:'tab-engagement', icon:'💬', label:'课堂活跃度', score:s.engagement.score},
+    {id:'tab-software', icon:'🖥️', label:'软件熟练度', score:s.software.score}
+  ];
+  dims.forEach(d => {
+    const cls = d.score >= 80 ? 'high' : d.score >= 60 ? 'medium' : 'low';
+    document.getElementById(d.id).innerHTML = `<span class="tab-icon">${d.icon}</span>${d.label}<span class="tab-score ${cls}">${d.score}分</span>`;
+  });
 }
 
 function renderAllTabContents(s) {
@@ -460,6 +667,9 @@ function renderAllTabContents(s) {
           <li><span class="d-label">老师发言占比</span><span class="d-value">${(p.speakRatio * 100).toFixed(0)}%</span></li>
           <li><span class="d-label">综合评估</span><span class="d-value" style="color:${p.score >= 80 ? 'var(--green)' : 'var(--red)'}">${p.detail}</span></li>
         </ul>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
+          <button class="btn-syllabus" onclick="openSyllabusModal(${s.id})">📖 查看教纲</button>
+        </div>
       </div>
     </div>`;
 
@@ -521,6 +731,78 @@ function showPage(name) {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// ========== SYLLABUS MODAL ==========
+function openSyllabusModal(sessionId) {
+  const syllabus = SYLLABUS_DATA[sessionId];
+  if (!syllabus) return;
+
+  const session = SESSIONS.find(s => s.id === sessionId);
+  document.getElementById('syllabus-modal-title').textContent = `教纲 · 第${syllabus.order}讲`;
+  document.getElementById('syllabus-modal-subtitle').textContent = syllabus.section;
+
+  const keyPointsHtml = syllabus.keyPoints.map((pt, i) => 
+    `<li><span class="point-num">${i + 1}</span><span>${pt}</span></li>`
+  ).join('');
+
+  const objectivesHtml = syllabus.objectives.map(o => 
+    `<span class="syllabus-tag">🎯 ${o}</span>`
+  ).join('');
+
+  const methodsHtml = syllabus.methods.map(m => 
+    `<span class="syllabus-tag">📋 ${m}</span>`
+  ).join('');
+
+  document.getElementById('syllabus-modal-body').innerHTML = `
+    <div class="syllabus-meta">
+      <div class="syllabus-meta-item">
+        <div class="label">章节序号</div>
+        <div class="value">第 ${syllabus.order} 讲 / 共 10 讲</div>
+      </div>
+      <div class="syllabus-meta-item">
+        <div class="label">要求时长</div>
+        <div class="value">${syllabus.requiredDuration}</div>
+      </div>
+      <div class="syllabus-meta-item">
+        <div class="label">教学课件</div>
+        <div class="value">${syllabus.courseware}</div>
+      </div>
+    </div>
+
+    <div class="syllabus-section">
+      <div class="syllabus-section-title">核心知识点</div>
+      <ul class="syllabus-points">${keyPointsHtml}</ul>
+    </div>
+
+    <div class="syllabus-section">
+      <div class="syllabus-section-title">教学目标</div>
+      <div class="syllabus-objectives">${objectivesHtml}</div>
+    </div>
+
+    <div class="syllabus-section">
+      <div class="syllabus-section-title">教学方法</div>
+      <div class="syllabus-objectives">${methodsHtml}</div>
+    </div>
+
+    <div class="syllabus-source">
+      <span class="src-icon">🔗</span>
+      <span>数据来源：飞书多维表格 · AI 监课系统 · 教纲大纲表（测试数据）</span>
+    </div>
+  `;
+
+  document.getElementById('syllabus-modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSyllabusModal() {
+  document.getElementById('syllabus-modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// ESC key to close modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSyllabusModal();
+});
 </script>
 </body>
 </html>
